@@ -1,0 +1,55 @@
+# ### create user
+
+# #
+# POST http://localhost:4000/user-api/users
+# Content-Type: application/json
+
+# {
+#     "name":"chethan",
+#     "email":"chethan@gmail.com",
+#     "dateofBirth":"2000-09-12",
+#     "mobileNumber":99193293
+# }
+# ### real all users
+# ### read a user by id
+# ### read a user by id
+# ### delete a user by id
+### ================= CREATE USER =================
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "name": " JACK",
+    "email": "JACK@gmail.com",
+    "dateOfBirth": "2000-09-12",
+    "mobileNumber": 99193293
+}
+
+
+### ================= GET ALL USERS =================
+GET http://localhost:4000/user-api/users
+
+
+### ================= GET USER BY ID =================
+# Replace ID after creating user
+GET http://localhost:4000/user-api/users/69a68e7278e5c65d1971b91e
+
+
+# ### ================= UPDATE USER =================
+# # Replace ID
+# PUT http://localhost:4000/user-api/users/69a68e7278e5c65d1971b91e
+# Content-Type: application/json
+# 69a68e7278e5c65d1971b91e
+
+# {
+#     "name": "chethan kishore",
+#     "mobileNumber": 88888888
+# }
+
+
+### ================= DELETE USER =================
+# Replace ID
+DELETE  http://localhost:4000/user-api/users/69a6847f78e5c65d1971b919
+
+###Activate User
+PATCH http://localhost:4000/user-api/users/69a6847f78e5c65d1971b919

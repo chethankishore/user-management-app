@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from "react";
+
+function UserList() {
+
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+
+    async function getUsers() {
+      try {
+        const res = await fetch("http://localhost:4000/user-api/users");
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.message || "Failed to fetch users");
+        }
+
+        setUsers(data.payload);
+
+      } catch (err) {
+        setError(err.message);
+      }
+    }
+
+    getUsers();   //  IMPORTANT
+
+  }, []);   // 
+//get users
+
+  return (
+    <div className="p-10">
+
+      <h1 className="text-2xl font-bold mb-4">List of Users</h1>
+
+      {error && <p className="text-red-500">{error}</p>}
+
+      {users.length === 0 && <p>No users found</p>}
+
+      {users.map((userObj) => (
+        <div key={userObj._id} className="border p-4 mb-3 rounded shadow  hover:cursor-pointer ">
+          <p className="text-xl font-semibold">{userObj.name}</p>
+          <p>{userObj.email}</p>
+        </div>
+      ))}
+
+    </div>
+  );
+}
+
+export default UserList;
