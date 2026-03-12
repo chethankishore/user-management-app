@@ -21,7 +21,7 @@ function AddUser() {
     setServerError(null);
 
     try {
-      const res = await fetch("http://localhost:4000/user-api/users", {
+      const res = await fetch("https://user-management-app-gules-theta.vercel.app/user-api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
