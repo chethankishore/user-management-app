@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {useNavigate} from 'react-router'
-import { useLocation } from 'react-router'
+import { useNavigate, useLocation } from "react-router-dom";
 
 function UserList() {
 
