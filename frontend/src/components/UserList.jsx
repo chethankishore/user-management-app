@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from 'react-router'
+import { useLocation } from 'react-router'
 
 function UserList() {
 
   const [users, setUsers] = useState([]);
   const [error, setError] = useState(null);
+  let {state}=useLocation()
+  let navigate=useNavigate()
 
+  const navigateToUser=(userObj)=>{
+    navigate('/user',{state:{user:userObj}})
+  }
   useEffect(() => {
 
     async function getUsers() {
@@ -29,6 +36,7 @@ function UserList() {
   }, []);   // 
 //get users
 
+
   return (
     <div className="p-10">
 
@@ -39,7 +47,7 @@ function UserList() {
       {users.length === 0 && <p>No users found</p>}
 
       {users.map((userObj) => (
-        <div key={userObj._id} className="border p-4 mb-3 rounded shadow  hover:cursor-pointer ">
+        <div key={userObj._id} className="border p-4 mb-3 rounded shadow  hover:cursor-pointer " onClick={()=>navigateToUser(userObj)}>
           <p className="text-xl font-semibold">{userObj.name}</p>
           <p>{userObj.email}</p>
         </div>

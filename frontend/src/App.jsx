@@ -22,7 +22,7 @@ function App() {
           element:<AddUser/>
 
         },{
-          path:"users",
+          path:"user",
           element:<User/>
 
         },
