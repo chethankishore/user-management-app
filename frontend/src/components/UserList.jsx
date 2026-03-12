@@ -16,7 +16,7 @@ function UserList() {
 
     async function getUsers() {
       try {
-        const res = await fetch("https://user-management-app-gules-theta.vercel.app/user-api/users");
+        const res = await fetch("https://user-management-app-uad6.onrender.com/user-api/users");
 
         const data = await res.json();
 
